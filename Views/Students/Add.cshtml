@@ -1,0 +1,148 @@
+﻿@model EnrollmentSystem.Web.Models.AddStudentViewModel
+
+@{
+    ViewData["Title"] = "Add Student";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light background for contrast */
+            padding: 20px; /* Add padding around the body */
+        }
+
+        .container {
+            border-radius: 10px; /* Rounded corners for the container */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            background-color: white; /* White background for the form */
+            padding: 20px; /* Padding inside the container */
+        }
+
+        h1, h2 {
+            padding: 15px; /* Padding inside the box */
+            border: 2px solid #0056b3; /* Border color and thickness */
+            border-radius: 8px; /* Rounded corners */
+            background-color: #f0f8ff; /* Light background color */
+            margin: 20px 0; /* Space above and below */
+        }
+
+        h1 {
+            font-size: 2.5rem; /* Size of H1 */
+            color: #004085; /* Text color */
+            text-align: center; /* Center alignment */
+        }
+
+        h2 {
+            font-size: 2rem; /* Size of H2 */
+            color: #0056b3; /* Text color */
+            text-align: left; /* Left alignment */
+        }
+
+
+
+        .form-floating {
+            margin-bottom: 1rem; /* Space between form elements */
+        }
+
+        .form-control {
+            border: 1px solid #ced4da; /* Border color */
+            border-radius: 5px; /* Slightly rounded corners */
+        }
+
+        .btn-custom {
+            background-color: #004085; /* Custom button color */
+            color: white; /* White text */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s ease; /* Smooth transition for hover effects */
+        }
+
+            .btn-custom:hover {
+                background-color: #007bff; /* Bootstrap primary color on hover */
+            }
+
+        .form-check-input:checked {
+            background-color: #004085; /* Custom checkbox color */
+            border-color: #004085; /* Custom border color */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>@ViewData["Title"]</h1>
+
+        <!-- Add Student Form -->
+        <form method="post">
+            <div class="form-floating">
+                <input type="text" class="form-control" asp-for="StudentId" id="student-id" placeholder="Student ID" required>
+                <label for="student-id">Student ID</label>
+            </div>
+
+            <div class="form-floating">
+                <input type="text" class="form-control" asp-for="StudentFirstName" id="student-first-name" placeholder="First Name" required>
+                <label for="student-first-name">First Name</label>
+            </div>
+
+            <div class="form-floating">
+                <input type="text" class="form-control" asp-for="StudentMiddleName" id="student-middle-name" placeholder="Middle Name">
+                <label for="student-middle-name">Middle Name</label>
+            </div>
+
+            <div class="form-floating">
+                <input type="text" class="form-control" asp-for="StudentLastName" id="student-last-name" placeholder="Last Name" required>
+                <label for="student-last-name">Last Name</label>
+            </div>
+
+            <div class="form-floating">
+                <input type="text" class="form-control" asp-for="StudentCourse" id="student-course" placeholder="Course" required>
+                <label for="student-course">Course</label>
+            </div>
+
+            <div class="form-floating">
+                <input type="text" class="form-control" asp-for="StudentYear" id="student-year" placeholder="Year Level" required>
+                <label for="student-year">Year Level</label>
+            </div>
+
+            <div class="form-floating">
+                <select class="form-control" asp-for="StudentRemarks" id="student-remarks">
+                    <option value="" disabled selected>Select a remark</option>
+                    <option value="Shiftee">Shiftee</option>
+                    <option value="Transferee">Transferee</option>
+                    <option value="New">New</option>
+                    <option value="Old Student">Old Student</option>
+                    <option value="Cross-enrollee">Cross-enrollee</option>
+                    <option value="Returnee">Returnee</option>
+                </select>
+                <label for="student-remarks">Remarks</label>
+            </div>
+
+            <div class="form-floating">
+                <input type="text" class="form-control" asp-for="StudentStatus" id="student-status" placeholder="Status" value="Active" disabled selected
+                       style="background-color: #e0f7fa; color: #00796b;">
+                <label for="student-status">Status</label>
+            </div>
+
+
+            <div class="form-check mb-3">
+                <input type="checkbox" class="form-check-input" id="all-info-true" required>
+                <label class="form-check-label" for="all-info-true">All Information is True</label>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-custom">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.2.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

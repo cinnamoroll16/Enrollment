@@ -1,0 +1,133 @@
+﻿@model EnrollmentSystem.Web.Models.AddSubjectViewModel
+@{
+    ViewData["Title"] = "Add Subject";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        .container {
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            padding: 15px;
+            border: 2px solid #0056b3;
+            border-radius: 8px;
+            background-color: #f0f8ff;
+            margin: 20px 0;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #004085;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: #0056b3;
+            text-align: left;
+        }
+
+        .form-floating {
+            margin-bottom: 1rem;
+        }
+
+        .form-control {
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+        }
+
+        .btn-custom {
+            background-color: #004085;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn-custom:hover {
+                background-color: #007bff;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>@ViewData["Title"]</h1>
+
+        <!-- Add Subject Form -->
+        <form method="post">
+
+            <div class="form-floating">
+                <input type="text" class="form-control" asp-for="SubjectCode" id="subject-code" placeholder="Subject Code" required>
+                <label for="subject-code">Subject Code</label>
+            </div>
+
+            <div class="form-floating">
+                <input type="text" class="form-control" asp-for="Description" id="description" placeholder="Description" required>
+                <label for="description">Description</label>
+            </div>
+
+            <div class="form-floating">
+                <input type="text" class="form-control" asp-for="Units" required />
+                <label for="units">Units</label>
+                <span asp-validation-for="Units" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating">
+                <select class="form-control" asp-for="Offering" id="semester" required>
+                    <option value="" disabled selected>Select a semester</option>
+                    <option value="1">1 - First Sem</option>
+                    <option value="2">2 - Second Sem</option>
+                </select>
+                <label for="semester">Offering Semester</label>
+                <span asp-validation-for="Offering" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating">
+                <select class="form-control" asp-for="Category" id="category" required>
+                    <option value="" disabled selected>Select a category</option>
+                    <option value="lec">Lec</option>
+                    <option value="lab">Lab</option>
+                </select>
+                <label for="category">Category</label>
+            </div>
+
+            <div class="form-floating">
+                <input type="text" class="form-control" asp-for="Status" id="student-status" placeholder="Status" value="Active" readonly style="background-color: #e0f7fa; color: #00796b;">
+                <label for="student-status">Status</label>
+            </div>
+            <div class="form-floating">
+                <input type="text" class="form-control" asp-for="CourseCode" id="coursCode" placeholder="CourseCode" required>
+                <label for="Course Code">Course</label>
+            </div>
+            <div class="form-floating">
+                <input type="text" class="form-control" asp-for="Curriculum" id="curriculum" placeholder="Curriculum" required>
+                <label for="curriculum">Curriculum</label>
+            </div>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-custom">Submit</button>
+                <button type="reset" class="btn btn-secondary">Clear</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.2.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

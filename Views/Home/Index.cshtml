@@ -1,0 +1,137 @@
+﻿@model EnrollmentSystem.Web.Models.AddUserViewModel
+
+@{
+    ViewData["Title"] = "Enrollment Entry";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light background for contrast */
+            padding: 20px; /* Add padding around the body */
+        }
+
+        .container {
+            border-radius: 10px; /* Rounded corners for the container */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            background-color: white; /* White background for the container */
+            padding: 20px; /* Padding inside the container */
+        }
+
+        h1 {
+            font-size: 2.5rem; /* Size of H1 */
+            color: #004085; /* Text color */
+            text-align: center; /* Center alignment */
+            margin-bottom: 20px; /* Space below the title */
+        }
+
+        .card {
+            margin: 10px 0; /* Space between cards */
+        }
+
+        .btn-custom {
+            background-color: #004085; /* Custom button color */
+            color: white; /* White text */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s ease; /* Smooth transition for hover effects */
+        }
+
+        .btn-custom:hover {
+            background-color: #007bff; /* Bootstrap primary color on hover */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>@ViewData["Title"]</h1>
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Enrollments</h5>
+                        <p class="card-text">150</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Courses</h5>
+                        <p class="card-text">45</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Staff</h5>
+                        <p class="card-text">200</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Students</h5>
+                        <p class="card-text">320</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>Recent Orders</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Course</th>
+                    <th>Student</th>
+                    <th>Instructor</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mathematics</td>
+                    <td>John Doe</td>
+                    <td>Jane Smith</td>
+                    <td><span class="badge bg-success">Delivered</span></td>
+                </tr>
+                <tr>
+                    <td>Science</td>
+                    <td>Emily Johnson</td>
+                    <td>Mark Thompson</td>
+                    <td><span class="badge bg-warning">Pending</span></td>
+                </tr>
+                <tr>
+                    <td>History</td>
+                    <td>Chris Lee</td>
+                    <td>Sarah Brown</td>
+                    <td><span class="badge bg-danger">Returned</span></td>
+                </tr>
+                <tr>
+                    <td>Literature</td>
+                    <td>Anna White</td>
+                    <td>David Wilson</td>
+                    <td><span class="badge bg-success">Delivered</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.2.0/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

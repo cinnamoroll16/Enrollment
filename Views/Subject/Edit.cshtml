@@ -1,0 +1,212 @@
+﻿@{
+    ViewData["Title"] = "Subject Entry";
+}
+@model EnrollmentSystem.Web.Models.Entities.Subject
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('c:\users\pakitoykitoy\source\repos\final\enrollmentsystem\views\image\ucbpic.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 50px;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 50px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            color: white;
+            background: linear-gradient(90deg, #004085, #007bff);
+            margin-bottom: 30px;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+            font-family: 'Arial Black', sans-serif;
+        }
+
+        h2 {
+            color: #004085;
+            background-color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 30px;
+            padding: 5px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            margin-top: 20px;
+        }
+
+        .table th {
+            background-color: #004085;
+            color: white;
+        }
+
+        .table td, .table th {
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .btn-custom {
+            background-color: #004085;
+            color: white;
+            padding: 10px 20px;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+            .btn-custom:hover {
+                background-color: #7DB4EC;
+            }
+
+        .form-floating {
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="text-center">@ViewData["Title"]</h1>
+
+        <!-- Subject Entry Form -->
+        <form>
+            <h2>Subject Information</h2>
+
+            <div class="row">
+                <!-- Subject Code -->
+                <div class="col-md-6">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="subjectCode" name="subjectCode" placeholder="Subject Code" required>
+                        <label for="subjectCode">Subject Code</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Description -->
+                <div class="col-md-12">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="description" name="description" placeholder="Description" required>
+                        <label for="description">Description</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Units -->
+                <div class="col-md-6">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="units" name="units" placeholder="Units" required>
+                        <label for="units">Units</label>
+                    </div>
+                </div>
+
+                <!-- Offering -->
+                <div class="col-md-6">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="offering" name="offering" placeholder="Offering" required>
+                        <label for="offering">Offering</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Category -->
+                <div class="col-md-6">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="category" name="category" placeholder="Category" required>
+                        <label for="category">Category</label>
+                    </div>
+                </div>
+
+                <!-- Course Code -->
+                <div class="col-md-6">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="courseCode" name="courseCode" placeholder="Course Code" required>
+                        <label for="courseCode">Course Code</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Curriculum Year -->
+                <div class="col-md-6">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="curriculumYear" name="curriculumYear" placeholder="Curriculum Year" required>
+                        <label for="curriculumYear">Curriculum Year</label>
+                    </div>
+                </div>
+            </div>
+
+            <h2>Requisite Information</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="reqSubjectCode" name="reqSubjectCode" placeholder="Requisite Subject Code" required>
+                        <label for="reqSubjectCode">Requisite Subject Code</label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="radio" name="requisiteType" id="preRequisite" value="pre-requisite">
+                        <label class="form-check-label" for="preRequisite">Pre-requisite</label>
+                    </div>
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="radio" name="requisiteType" id="coRequisite" value="co-requisite">
+                        <label class="form-check-label" for="coRequisite">Co-requisite</label>
+                    </div>
+                </div>
+            </div>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Subject Code</th>
+                        <th>Description</th>
+                        <th>Units</th>
+                        <th>Co-Pre Requisite Subject</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" name="requisite-subject-code" required placeholder="Subject Code">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" name="req-description" required placeholder="Description">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" name="units" required placeholder="Units">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" name="requisite" required placeholder="Co/Pre-Requisite">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="text-center mt-3">
+                <button type="reset" class="btn btn-secondary">Clear</button>
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

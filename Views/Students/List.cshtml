@@ -1,0 +1,135 @@
+﻿@model List<EnrollmentSystem.Web.Models.Entities.Student>
+
+@{
+    ViewData["Title"] = "List of Students";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light background for contrast */
+            padding: 20px; /* Add padding around the body */
+        }
+
+        .container {
+            border-radius: 10px; /* Rounded corners for the container */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            background-color: white; /* White background for the form */
+            padding: 20px; /* Padding inside the container */
+        }
+
+        h1, h2 {
+            padding: 15px; /* Padding inside the box */
+            border: 2px solid #0056b3; /* Border color and thickness */
+            border-radius: 8px; /* Rounded corners */
+            background-color: #f0f8ff; /* Light background color */
+            margin: 20px 0; /* Space above and below */
+        }
+
+        h1 {
+            font-size: 2.5rem; /* Size of H1 */
+            color: #004085; /* Text color */
+            text-align: center; /* Center alignment */
+        }
+
+        h2 {
+            font-size: 2rem; /* Size of H2 */
+            color: #0056b3; /* Text color */
+            text-align: left; /* Left alignment */
+        }
+
+
+
+        .btn-custom {
+            background-color: #004085; /* Custom button color */
+            color: white; /* White text */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s ease; /* Smooth transition for hover effects */
+        }
+
+            .btn-custom:hover {
+                background-color: #007bff; /* Bootstrap primary color on hover */
+            }
+
+        .table {
+            margin-top: 20px; /* Space above table */
+            text-align: center; /* Center text in the table */
+        }
+
+            .table th {
+                background-color: #004085; /* Header background color */
+                color: white; /* Header text color */
+            }
+
+            .table td, .table th {
+                vertical-align: middle; /* Center content vertically */
+            }
+
+        .table-responsive {
+            overflow-x: auto; /* Horizontal scroll on smaller screens */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>@ViewData["Title"]</h1>
+        <div class="row mb-4">
+            <div class="col text-end">
+                <!-- Aligns content to the right -->
+                <a class="btn btn-custom" asp-controller="Students" asp-action="Add">
+                    <i class="fas fa-plus"></i> Add Student
+                </a>
+            </div>
+        </div>
+        <table class="table table-bordered table-responsive">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Middle Name</th>
+                    <th>Last Name</th>
+                    <th>Course</th>
+                    <th>Year</th>
+                    <th>Remarks</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var student in Model)
+                {
+                    <tr>
+                        <td>@student.StudentId</td>
+                        <td>@student.StudentFirstName</td>
+                        <td>@student.StudentMiddleName</td>
+                        <td>@student.StudentLastName</td>
+                        <td>@student.StudentCourse</td>
+                        <td>@student.StudentYear</td>
+                        <td>@student.StudentRemarks</td>
+                        <td>@student.StudentStatus</td>
+                        <td>
+                            <a class="btn btn-custom" asp-controller="Students" asp-action="Edit" asp-route-id="@student.Id">Edit</a>
+                            <a class="btn btn-danger" asp-controller="Students" asp-action="Delete" asp-route-id="@student.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.2.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>
